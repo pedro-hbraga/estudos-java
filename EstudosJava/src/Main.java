@@ -1,4 +1,6 @@
 import java.io.*;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -33,6 +35,17 @@ public class Main {
 
             bufferedReader.close();
             writer.close();
+
+            // LENDO .csv usando Scanner
+            var csvFile = "E:\\Cursos\\Alura\\Java\\IO\\EstudosJava\\Arquivos\\contas.csv";
+            Scanner scanner = new Scanner(new File(csvFile));
+            while(scanner.hasNextLine()){
+                String linha = scanner.nextLine();
+                var valores = linha.split(",");
+                System.out.println(Arrays.toString(valores));
+               // System.out.println(linha);
+            }
+            scanner.close();
 
 
         } catch (FileNotFoundException e) {
