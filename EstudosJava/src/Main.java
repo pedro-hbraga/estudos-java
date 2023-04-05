@@ -47,10 +47,26 @@ public class Main {
             }
             scanner.close();
 
+            Cliente cliente = new Cliente();
+            cliente.Nome = "Pedro";
+            cliente.Profissao = "Estag";
+            cliente.Cpt = "44444";
+
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("cliente.bin"));
+            oos.writeObject(cliente);
+            oos.close();
+
+            ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("cliente.bin"));
+            Cliente c = ((Cliente) inputStream.readObject());
+            inputStream.close();
+            System.out.println(c.Nome);
+
 
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
 
