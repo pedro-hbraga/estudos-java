@@ -9,7 +9,7 @@ public class Main {
 
         for(var t : stringList) System.out.println(t);
         System.out.println("-------------");
-        
+
         stringList.forEach(x -> {
             System.out.println(x);
             System.out.println();
